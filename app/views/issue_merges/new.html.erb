@@ -1,0 +1,42 @@
+<%# Redmine Issue Merge plugin (Apache-2.0, see LICENSE and NOTICE) %>
+<h2><%= l(:label_issue_merge) %></h2>
+
+<%= form_tag(new_issue_merge_path(@issue), method: :get, id: 'issue-merge-form') do %>
+  <div class="box tabular">
+    <p>
+      <label><%= l(:label_issue_merge_this) %></label>
+      <%= link_to_issue(@issue, project: true) %>
+    </p>
+    <p>
+      <label for="other_issue_id"><%= l(:label_issue_merge_other) %> <span class="required">*</span></label>
+      <%= text_field_tag 'other_issue_id', (@other_id ? "##{@other_id}" : ''), size: 10, required: true %>
+    </p>
+    <p>
+      <label><%= l(:label_issue_merge_direction) %></label>
+      <label class="block">
+        <%= radio_button_tag 'direction', 'into_other', @direction != 'into_this' %>
+        <%= l(:label_issue_merge_into_other, id: @issue.id) %>
+      </label>
+      <label class="block">
+        <%= radio_button_tag 'direction', 'into_this', @direction == 'into_this' %>
+        <%= l(:label_issue_merge_into_this, id: @issue.id) %>
+      </label>
+    </p>
+    <p><em class="info"><%= l(:text_issue_merge_hint) %></em></p>
+  </div>
+  <%= submit_tag l(:button_issue_merge_preview), name: nil %>
+  <%= link_to l(:button_cancel), issue_path(@issue) %>
+<% end %>
+
+<%= javascript_tag do %>
+  observeAutocompleteField('other_issue_id',
+    '<%= escape_javascript auto_complete_issues_path(project_id: @issue.project, scope: 'all', issue_id: @issue.id) %>');
+<% end %>
+
+<% if @merger %>
+  <%= render partial: 'issue_merges/preview',
+             locals: { merger: @merger, confirm_url: issue_merge_path(@issue),
+                       hidden: { 'other_issue_id' => @other_id, 'direction' => @direction } } %>
+<% end %>
+
+<% html_title l(:label_issue_merge) %>

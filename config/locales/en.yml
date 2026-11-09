@@ -1,0 +1,67 @@
+# Redmine Issue Merge plugin — English (Apache-2.0, see LICENSE and NOTICE)
+en:
+  permission_merge_issues: Merge issues
+  button_issue_merge: Merge
+  button_issue_merge_preview: Preview
+  button_issue_merge_confirm: Merge now
+  label_issue_merge: Merge issues
+  label_issue_merge_this: This issue
+  label_issue_merge_other: Other issue
+  label_issue_merge_direction: Direction
+  label_issue_merge_into_other: "Merge #%{id} into the other issue (#%{id} goes away)"
+  label_issue_merge_into_this: "Merge the other issue into #%{id} (#%{id} stays)"
+  label_issue_merge_pick_destination: Which issue is kept?
+  label_issue_merge_preview: What will happen
+  label_issue_merge_source: Merged
+  label_issue_merge_destination: Kept
+  label_issue_merge_notes: Notes
+  label_issue_merge_time: Time entries
+  label_issue_merge_files: Files
+  label_issue_merge_subtasks: Subtasks
+  label_issue_merge_relations: Relations
+  label_issue_merge_watchers: Watchers
+  label_issue_merge_revisions: Revisions
+  label_issue_merge_checklist: Checklist items
+  label_issue_merge_action_close: Close it as a duplicate (recommended)
+  label_issue_merge_action_delete: Delete it permanently
+  label_issue_merge_first_closed_status: First closed status
+  text_issue_merge_hint: "Notes, time entries, files, subtasks, relations, watchers, revisions and checklist items move to the issue that is kept, with their original authors and dates."
+  text_issue_merge_will_close: "Each merged issue is then closed with status \"%{status}\" and marked as a duplicate of #%{id}; its link keeps working."
+  text_issue_merge_will_delete: "Each merged issue is then deleted permanently. This cannot be undone."
+  text_issue_merge_confirm_delete: "Merge and permanently delete %{ids}?"
+  text_issue_merge_description: "Description of #%{id} \"%{subject}\":"
+  text_issue_merge_stub: "Merged into #%{id}: its notes, time entries, files and relations are there now."
+  text_issue_merge_note: "Merged #%{id} \"%{subject}\" into this issue."
+  text_issue_merge_original: "Was %{tracker}, %{status}, created by %{author} on %{created}"
+  text_issue_merge_original_assignee: "and assigned to %{name}"
+  text_issue_merge_moved: "Moved here:"
+  text_issue_merge_fields: "Its fields: %{fields}"
+  text_issue_merge_private_fields: "Restricted fields of #%{id}: %{fields}"
+  text_issue_merge_filled_fields: "Empty fields filled from the merged issues: %{fields}"
+  text_issue_merge_skipped_relation: "Relation not moved: %{relation} (%{reason})"
+  text_issue_merge_already_related: "#%{id} is already related to that issue"
+  text_issue_merge_closed: "#%{id} closed as a duplicate."
+  text_issue_merge_deleted: "#%{id} deleted."
+  text_issue_merge_protected_pattern_info: "Regular expression tested against the subject and the description (case-insensitive). Use it for issues that another system keeps in sync and would recreate. Empty = no protection."
+  notice_issue_merge_done: "%{sources} merged into #%{destination}."
+  error_issue_merge_not_found: "Issue #%{id} not found or not visible to you."
+  error_issue_merge_same: An issue cannot be merged into itself.
+  error_issue_merge_no_source: Choose at least one issue to merge.
+  error_issue_merge_no_destination: Choose the issue to keep.
+  error_issue_merge_not_allowed: "You are not allowed to merge issues in project %{project}."
+  error_issue_merge_destination_not_editable: "You cannot edit #%{id}, the issue that would be kept."
+  error_issue_merge_cannot_delete: "You are not allowed to delete #%{id}."
+  error_issue_merge_cannot_close: "You are not allowed to edit #%{id}, so it cannot be closed."
+  error_issue_merge_ancestor: "#%{id} is a parent of #%{destination} and cannot be merged into it."
+  error_issue_merge_protected: "#%{id} is protected from merging by the plugin settings."
+  error_issue_merge_time_tracking: "#%{id} has time entries, but time tracking is disabled in project %{project}."
+  error_issue_merge_subtask: "Subtask #%{child} cannot move under #%{destination}: the subtask settings do not allow it across these projects."
+  error_issue_merge_failed: "Nothing was changed, the merge was cancelled: %{message}"
+  error_issue_merge_invalid_pattern: Invalid regular expression; it protects nothing.
+  setting_issue_merge_source_action: Merged issue
+  setting_issue_merge_closed_status: Status of merged issues
+  setting_issue_merge_escalate_priority: Kept issue takes the higher priority
+  setting_issue_merge_fill_custom_fields: Fill empty custom fields of the kept issue
+  setting_issue_merge_add_watchers: Author and assignee of the merged issue become watchers
+  setting_issue_merge_notify: Notify by email (one email per merge)
+  setting_issue_merge_protected_pattern: Never merge issues matching

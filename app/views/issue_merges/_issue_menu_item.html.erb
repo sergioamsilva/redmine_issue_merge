@@ -1,0 +1,32 @@
+<%# Redmine Issue Merge plugin (Apache-2.0, see LICENSE and NOTICE) %>
+<% if User.current.allowed_to?(:merge_issues, issue.project) %>
+  <template id="issue-merge-menu-item">
+    <%= link_to sprite_icon('bullet-go', l(:button_issue_merge)), new_issue_merge_path(issue),
+                class: 'icon icon-bullet-go issue-merge-link' %>
+  </template>
+  <%= javascript_tag do %>
+    (function () {
+      function place() {
+        var template = document.getElementById('issue-merge-menu-item');
+        if (!template) { return; }
+        var menus = document.querySelectorAll('#content > .contextual .drdn-items');
+        menus.forEach(function (menu) {
+          if (menu.querySelector('.issue-merge-link')) { return; }
+          var link = template.content.firstElementChild.cloneNode(true);
+          menu.insertBefore(link, menu.querySelector('a.icon-del'));
+        });
+        if (menus.length === 0) {
+          var bar = document.querySelector('#content > .contextual');
+          if (bar && !bar.querySelector('.issue-merge-link')) {
+            bar.appendChild(template.content.firstElementChild.cloneNode(true));
+          }
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', place);
+      } else {
+        place();
+      }
+    })();
+  <% end %>
+<% end %>

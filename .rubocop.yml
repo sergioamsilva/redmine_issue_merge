@@ -1,0 +1,56 @@
+# Redmine Issue Merge plugin — Rubocop configuration (Apache-2.0, see LICENSE and NOTICE)
+
+plugins:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.2
+  TargetRailsVersion: 7.1
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - '**/vendor/**/*'
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Style/Documentation:
+  Enabled: true
+  Exclude:
+    - 'test/**/*'
+
+# __dir__ resolves symlinks; the plugin is symlinked into the Redmine tree (CI and deployments),
+# so the __FILE__ form is required to reach the Redmine test helper
+Style/ExpandPathArguments:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 30
+  Exclude:
+    - 'test/**/*'
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+Metrics/ClassLength:
+  Max: 120
+  Exclude:
+    - 'test/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'init.rb'
+    - 'test/**/*'
+
+
+Rails/ApplicationRecord:
+  Enabled: false

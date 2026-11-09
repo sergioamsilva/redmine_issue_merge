@@ -1,0 +1,67 @@
+# Redmine Issue Merge plugin — Français (Apache-2.0, see LICENSE and NOTICE)
+fr:
+  permission_merge_issues: Fusionner des demandes
+  button_issue_merge: Fusionner
+  button_issue_merge_preview: Aperçu
+  button_issue_merge_confirm: Fusionner maintenant
+  label_issue_merge: Fusionner des demandes
+  label_issue_merge_this: Cette demande
+  label_issue_merge_other: Autre demande
+  label_issue_merge_direction: Sens
+  label_issue_merge_into_other: "Fusionner #%{id} dans l'autre demande (#%{id} disparaît)"
+  label_issue_merge_into_this: "Fusionner l'autre demande dans #%{id} (#%{id} est conservée)"
+  label_issue_merge_pick_destination: Quelle demande est conservée ?
+  label_issue_merge_preview: Ce qui va se passer
+  label_issue_merge_source: Fusionnée
+  label_issue_merge_destination: Conservée
+  label_issue_merge_notes: Notes
+  label_issue_merge_time: Temps passé
+  label_issue_merge_files: Fichiers
+  label_issue_merge_subtasks: Sous-tâches
+  label_issue_merge_relations: Relations
+  label_issue_merge_watchers: Observateurs
+  label_issue_merge_revisions: Révisions
+  label_issue_merge_checklist: Éléments de checklist
+  label_issue_merge_action_close: La fermer comme doublon (recommandé)
+  label_issue_merge_action_delete: La supprimer définitivement
+  label_issue_merge_first_closed_status: Premier statut fermé
+  text_issue_merge_hint: "Les notes, le temps passé, les fichiers, les sous-tâches, les relations, les observateurs, les révisions et la checklist passent sur la demande conservée, avec leurs auteurs et dates d'origine."
+  text_issue_merge_will_close: "Chaque demande fusionnée est ensuite fermée avec le statut « %{status} » et marquée comme doublon de #%{id} ; son lien reste valide."
+  text_issue_merge_will_delete: "Chaque demande fusionnée est ensuite supprimée définitivement. Cette action est irréversible."
+  text_issue_merge_confirm_delete: "Fusionner et supprimer définitivement %{ids} ?"
+  text_issue_merge_description: "Description de #%{id} « %{subject} » :"
+  text_issue_merge_stub: "Fusionnée dans #%{id} : ses notes, son temps passé, ses fichiers et ses relations s'y trouvent désormais."
+  text_issue_merge_note: "#%{id} « %{subject} » a été fusionnée dans cette demande."
+  text_issue_merge_original: "C'était %{tracker}, %{status}, créée par %{author} le %{created}"
+  text_issue_merge_original_assignee: "et assignée à %{name}"
+  text_issue_merge_moved: "Déplacé ici :"
+  text_issue_merge_fields: "Ses champs : %{fields}"
+  text_issue_merge_private_fields: "Champs restreints de #%{id} : %{fields}"
+  text_issue_merge_filled_fields: "Champs vides remplis à partir des demandes fusionnées : %{fields}"
+  text_issue_merge_skipped_relation: "Relation non déplacée : %{relation} (%{reason})"
+  text_issue_merge_already_related: "#%{id} est déjà liée à cette demande"
+  text_issue_merge_closed: "#%{id} fermée comme doublon."
+  text_issue_merge_deleted: "#%{id} supprimée."
+  text_issue_merge_protected_pattern_info: "Expression régulière testée sur le sujet et la description (sans tenir compte de la casse). Utile pour les demandes qu'un autre système synchronise et recréerait. Vide = aucune protection."
+  notice_issue_merge_done: "%{sources} fusionnée(s) dans #%{destination}."
+  error_issue_merge_not_found: "La demande #%{id} n'existe pas ou ne vous est pas visible."
+  error_issue_merge_same: Une demande ne peut pas être fusionnée avec elle-même.
+  error_issue_merge_no_source: Choisissez au moins une demande à fusionner.
+  error_issue_merge_no_destination: Choisissez la demande à conserver.
+  error_issue_merge_not_allowed: "Vous n'êtes pas autorisé à fusionner des demandes dans le projet %{project}."
+  error_issue_merge_destination_not_editable: "Vous ne pouvez pas modifier #%{id}, la demande qui serait conservée."
+  error_issue_merge_cannot_delete: "Vous n'êtes pas autorisé à supprimer #%{id}."
+  error_issue_merge_cannot_close: "Vous n'êtes pas autorisé à modifier #%{id} ; elle ne peut donc pas être fermée."
+  error_issue_merge_ancestor: "#%{id} est parente de #%{destination} et ne peut pas y être fusionnée."
+  error_issue_merge_protected: "#%{id} est protégée contre la fusion par la configuration du plugin."
+  error_issue_merge_time_tracking: "#%{id} a du temps passé, mais le suivi du temps est désactivé dans le projet %{project}."
+  error_issue_merge_subtask: "La sous-tâche #%{child} ne peut pas passer sous #%{destination} : la configuration des sous-tâches ne le permet pas entre ces projets."
+  error_issue_merge_failed: "Rien n'a été modifié, la fusion a été annulée : %{message}"
+  error_issue_merge_invalid_pattern: Expression régulière invalide ; elle ne protège rien.
+  setting_issue_merge_source_action: Demande fusionnée
+  setting_issue_merge_closed_status: Statut des demandes fusionnées
+  setting_issue_merge_escalate_priority: La demande conservée prend la priorité la plus haute
+  setting_issue_merge_fill_custom_fields: Remplir les champs personnalisés vides de la demande conservée
+  setting_issue_merge_add_watchers: L'auteur et l'assigné de la demande fusionnée deviennent observateurs
+  setting_issue_merge_notify: Notifier par email (un email par fusion)
+  setting_issue_merge_protected_pattern: Ne jamais fusionner les demandes correspondant à

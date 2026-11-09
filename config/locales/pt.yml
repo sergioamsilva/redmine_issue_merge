@@ -1,0 +1,67 @@
+# Redmine Issue Merge plugin — Português (Apache-2.0, see LICENSE and NOTICE)
+pt:
+  permission_merge_issues: Fundir tarefas
+  button_issue_merge: Fundir
+  button_issue_merge_preview: Pré-visualizar
+  button_issue_merge_confirm: Fundir agora
+  label_issue_merge: Fundir tarefas
+  label_issue_merge_this: Esta tarefa
+  label_issue_merge_other: Outra tarefa
+  label_issue_merge_direction: Sentido
+  label_issue_merge_into_other: "Fundir a #%{id} na outra tarefa (a #%{id} desaparece)"
+  label_issue_merge_into_this: "Fundir a outra tarefa na #%{id} (a #%{id} fica)"
+  label_issue_merge_pick_destination: Que tarefa fica?
+  label_issue_merge_preview: O que vai acontecer
+  label_issue_merge_source: Fundida
+  label_issue_merge_destination: Fica
+  label_issue_merge_notes: Notas
+  label_issue_merge_time: Registos de tempo
+  label_issue_merge_files: Ficheiros
+  label_issue_merge_subtasks: Subtarefas
+  label_issue_merge_relations: Relações
+  label_issue_merge_watchers: Observadores
+  label_issue_merge_revisions: Revisões
+  label_issue_merge_checklist: Itens da checklist
+  label_issue_merge_action_close: Fechar como duplicada (recomendado)
+  label_issue_merge_action_delete: Apagar definitivamente
+  label_issue_merge_first_closed_status: Primeiro estado fechado
+  text_issue_merge_hint: "Notas, registos de tempo, ficheiros, subtarefas, relações, observadores, revisões e itens da checklist passam para a tarefa que fica, com os autores e as datas originais."
+  text_issue_merge_will_close: "Cada tarefa fundida é depois fechada com o estado \"%{status}\" e marcada como duplicada da #%{id}; o link continua a funcionar."
+  text_issue_merge_will_delete: "Cada tarefa fundida é depois apagada definitivamente. Não é possível desfazer."
+  text_issue_merge_confirm_delete: "Fundir e apagar definitivamente %{ids}?"
+  text_issue_merge_description: "Descrição da #%{id} \"%{subject}\":"
+  text_issue_merge_stub: "Fundida na #%{id}: as notas, os registos de tempo, os ficheiros e as relações estão lá."
+  text_issue_merge_note: "A #%{id} \"%{subject}\" foi fundida nesta tarefa."
+  text_issue_merge_original: "Era %{tracker}, %{status}, criada por %{author} em %{created}"
+  text_issue_merge_original_assignee: "e atribuída a %{name}"
+  text_issue_merge_moved: "Passaram para aqui:"
+  text_issue_merge_fields: "Os campos dela: %{fields}"
+  text_issue_merge_private_fields: "Campos restritos da #%{id}: %{fields}"
+  text_issue_merge_filled_fields: "Campos vazios preenchidos a partir das tarefas fundidas: %{fields}"
+  text_issue_merge_skipped_relation: "Relação não movida: %{relation} (%{reason})"
+  text_issue_merge_already_related: "a #%{id} já tem relação com essa tarefa"
+  text_issue_merge_closed: "A #%{id} foi fechada como duplicada."
+  text_issue_merge_deleted: "A #%{id} foi apagada."
+  text_issue_merge_protected_pattern_info: "Expressão regular testada no título e na descrição (sem distinguir maiúsculas). Serve para tarefas que outro sistema mantém sincronizadas e voltaria a criar. Vazio = sem proteção."
+  notice_issue_merge_done: "%{sources} fundida(s) na #%{destination}."
+  error_issue_merge_not_found: "A tarefa #%{id} não existe ou não a pode ver."
+  error_issue_merge_same: Uma tarefa não pode ser fundida em si própria.
+  error_issue_merge_no_source: Escolha pelo menos uma tarefa para fundir.
+  error_issue_merge_no_destination: Escolha a tarefa que fica.
+  error_issue_merge_not_allowed: "Não tem permissão para fundir tarefas no projeto %{project}."
+  error_issue_merge_destination_not_editable: "Não pode editar a #%{id}, a tarefa que ficaria."
+  error_issue_merge_cannot_delete: "Não tem permissão para apagar a #%{id}."
+  error_issue_merge_cannot_close: "Não tem permissão para editar a #%{id}, por isso não a pode fechar."
+  error_issue_merge_ancestor: "A #%{id} é mãe da #%{destination} e não pode ser fundida nela."
+  error_issue_merge_protected: "A #%{id} está protegida contra fusões nas definições do plugin."
+  error_issue_merge_time_tracking: "A #%{id} tem registos de tempo, mas o registo de tempo está desativado no projeto %{project}."
+  error_issue_merge_subtask: "A subtarefa #%{child} não pode passar para debaixo da #%{destination}: as definições de subtarefas não o permitem entre estes projetos."
+  error_issue_merge_failed: "Nada foi alterado, a fusão foi cancelada: %{message}"
+  error_issue_merge_invalid_pattern: Expressão regular inválida; não protege nada.
+  setting_issue_merge_source_action: Tarefa fundida
+  setting_issue_merge_closed_status: Estado das tarefas fundidas
+  setting_issue_merge_escalate_priority: A tarefa que fica assume a prioridade mais alta
+  setting_issue_merge_fill_custom_fields: Preencher os campos personalizados vazios da tarefa que fica
+  setting_issue_merge_add_watchers: Autor e responsável da tarefa fundida passam a observadores
+  setting_issue_merge_notify: Notificar por email (um email por fusão)
+  setting_issue_merge_protected_pattern: Nunca fundir tarefas que correspondam a

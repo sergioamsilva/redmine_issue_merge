@@ -1,0 +1,43 @@
+# Redmine Issue Merge plugin — CI (Apache-2.0, see LICENSE and NOTICE)
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        redmine: ['6.1-stable', '7.0-stable']
+    env:
+      RAILS_ENV: test
+    steps:
+      - name: Install Subversion
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq subversion
+      - name: Fetch Redmine ${{ matrix.redmine }}
+        run: svn export -q https://svn.redmine.org/redmine/branches/${{ matrix.redmine }}/ /opt/redmine
+      - uses: actions/checkout@v4
+        with:
+          path: redmine_issue_merge
+      - name: Link the plugin
+        run: ln -s $GITHUB_WORKSPACE/redmine_issue_merge /opt/redmine/plugins/redmine_issue_merge
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - name: Install Redmine
+        working-directory: /opt/redmine
+        run: |
+          printf 'test:\n  adapter: sqlite3\n  database: db/test.sqlite3\n' > config/database.yml
+          bundle config set --local without 'rmagick development'
+          bundle install -j4 --quiet
+          bundle exec rake generate_secret_token db:create db:migrate redmine:plugins:migrate
+      - name: Tests
+        working-directory: /opt/redmine
+        run: bin/rails test plugins/redmine_issue_merge/test
+      - name: Rubocop
+        if: matrix.redmine == '6.1-stable'
+        working-directory: /opt/redmine
+        run: bundle exec rubocop -c plugins/redmine_issue_merge/.rubocop.yml plugins/redmine_issue_merge/

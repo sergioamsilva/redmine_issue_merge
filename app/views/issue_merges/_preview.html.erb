@@ -1,0 +1,70 @@
+<%# Redmine Issue Merge plugin (Apache-2.0, see LICENSE and NOTICE) %>
+<% columns = %i[journals time attachments children relations watchers changesets] %>
+<% columns << :checklists if RedmineIssueMerge.checklists? %>
+<% labels = { journals: :notes, time: :time, attachments: :files, children: :subtasks, relations: :relations,
+              watchers: :watchers, changesets: :revisions, checklists: :checklist } %>
+
+<h3><%= l(:label_issue_merge_preview) %></h3>
+
+<% if merger.errors.any? %>
+  <div id="errorExplanation">
+    <ul>
+      <% merger.errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="autoscroll">
+<table class="list issue-merge-plan">
+  <thead>
+    <tr>
+      <th><%= l(:label_issue_merge_source) %></th>
+      <% columns.each do |column| %>
+        <th><%= l(:"label_issue_merge_#{labels[column]}") %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% merger.plans.each do |plan| %>
+      <tr>
+        <td class="subject"><%= link_to_issue(plan.source, project: true) %></td>
+        <% columns.each do |column| %>
+          <td>
+            <% if column == :time %>
+              <%= plan.time_entries %><%= " (#{format('%.2f', plan.hours)} h)" if plan.time_entries.positive? %>
+            <% else %>
+              <%= plan.public_send(column) %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<p>
+  <%= l(:label_issue_merge_destination) %>:
+  <strong><%= link_to_issue(merger.destination, project: true) %></strong>
+</p>
+
+<% if RedmineIssueMerge.delete_source? %>
+  <p class="warning"><%= l(:text_issue_merge_will_delete) %></p>
+<% else %>
+  <p><%= l(:text_issue_merge_will_close, status: RedmineIssueMerge.closed_status&.name, id: merger.destination.id) %></p>
+<% end %>
+
+<% if merger.errors.empty? %>
+  <%= form_tag(confirm_url, method: :post, id: 'issue-merge-confirm') do %>
+    <% hidden.each do |name, value| %>
+      <% Array(value).each do |item| %>
+        <%= hidden_field_tag name, item, id: nil %>
+      <% end %>
+    <% end %>
+    <% ids = merger.sources.map { |s| "##{s.id}" }.join(', ') %>
+    <%= submit_tag l(:button_issue_merge_confirm), name: nil,
+                   data: (RedmineIssueMerge.delete_source? ? { confirm: l(:text_issue_merge_confirm_delete, ids: ids) } : {}) %>
+  <% end %>
+<% end %>

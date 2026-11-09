@@ -1,0 +1,7 @@
+<%# Redmine Issue Merge plugin (Apache-2.0, see LICENSE and NOTICE) %>
+<% if issues.present? && issues.map(&:project).uniq.all? { |project| User.current.allowed_to?(:merge_issues, project) } %>
+  <li>
+    <% url = issues.one? ? new_issue_merge_path(issues.first) : new_issue_merges_path(ids: issues.map(&:id)) %>
+    <%= context_menu_link sprite_icon('bullet-go', l(:button_issue_merge)), url, class: 'icon icon-bullet-go' %>
+  </li>
+<% end %>

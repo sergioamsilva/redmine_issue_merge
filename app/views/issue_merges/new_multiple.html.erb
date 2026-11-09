@@ -1,0 +1,32 @@
+<%# Redmine Issue Merge plugin (Apache-2.0, see LICENSE and NOTICE) %>
+<h2><%= l(:label_issue_merge) %></h2>
+
+<%= form_tag(new_issue_merges_path, method: :get, id: 'issue-merge-form') do %>
+  <% @issues.each do |issue| %>
+    <%= hidden_field_tag 'ids[]', issue.id, id: nil %>
+  <% end %>
+  <div class="box">
+    <p><strong><%= l(:label_issue_merge_pick_destination) %></strong></p>
+    <ul class="issue-merge-candidates">
+      <% @issues.each_with_index do |issue, index| %>
+        <li>
+          <label>
+            <%= radio_button_tag 'destination_id', issue.id,
+                                 @destination ? @destination == issue : index.zero? %>
+            <%= link_to_issue(issue, project: true) %>
+          </label>
+        </li>
+      <% end %>
+    </ul>
+    <p><em class="info"><%= l(:text_issue_merge_hint) %></em></p>
+  </div>
+  <%= submit_tag l(:button_issue_merge_preview), name: nil %>
+<% end %>
+
+<% if @merger %>
+  <%= render partial: 'issue_merges/preview',
+             locals: { merger: @merger, confirm_url: issue_merges_path,
+                       hidden: { 'ids[]' => @issues.map(&:id), 'destination_id' => @destination.id } } %>
+<% end %>
+
+<% html_title l(:label_issue_merge) %>

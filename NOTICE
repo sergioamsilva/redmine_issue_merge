@@ -1,0 +1,7 @@
+Redmine Issue Merge
+Copyright 2026 Sérgio Silva
+
+This product is a rewrite of "redmine_merge_issues" by Vincent Vanwaelscappel
+(https://github.com/EnhydraV/redmine_merge_issues), licensed under the Apache License, Version 2.0.
+The merge service, controller, views, translations and tests were written anew; the idea, the
+permission name and the overall workflow come from that project.

@@ -1,0 +1,67 @@
+# Redmine Issue Merge plugin — Português do Brasil (Apache-2.0, see LICENSE and NOTICE)
+pt-BR:
+  permission_merge_issues: Mesclar tarefas
+  button_issue_merge: Mesclar
+  button_issue_merge_preview: Visualizar
+  button_issue_merge_confirm: Mesclar agora
+  label_issue_merge: Mesclar tarefas
+  label_issue_merge_this: Esta tarefa
+  label_issue_merge_other: Outra tarefa
+  label_issue_merge_direction: Sentido
+  label_issue_merge_into_other: "Mesclar a #%{id} na outra tarefa (a #%{id} desaparece)"
+  label_issue_merge_into_this: "Mesclar a outra tarefa na #%{id} (a #%{id} fica)"
+  label_issue_merge_pick_destination: Qual tarefa fica?
+  label_issue_merge_preview: O que vai acontecer
+  label_issue_merge_source: Mesclada
+  label_issue_merge_destination: Fica
+  label_issue_merge_notes: Notas
+  label_issue_merge_time: Apontamentos de horas
+  label_issue_merge_files: Arquivos
+  label_issue_merge_subtasks: Subtarefas
+  label_issue_merge_relations: Relações
+  label_issue_merge_watchers: Observadores
+  label_issue_merge_revisions: Revisões
+  label_issue_merge_checklist: Itens da checklist
+  label_issue_merge_action_close: Fechar como duplicada (recomendado)
+  label_issue_merge_action_delete: Excluir definitivamente
+  label_issue_merge_first_closed_status: Primeira situação fechada
+  text_issue_merge_hint: "Notas, apontamentos de horas, arquivos, subtarefas, relações, observadores, revisões e itens da checklist passam para a tarefa que fica, com os autores e as datas originais."
+  text_issue_merge_will_close: "Cada tarefa mesclada é depois fechada com a situação \"%{status}\" e marcada como duplicada da #%{id}; o link continua funcionando."
+  text_issue_merge_will_delete: "Cada tarefa mesclada é depois excluída definitivamente. Não é possível desfazer."
+  text_issue_merge_confirm_delete: "Mesclar e excluir definitivamente %{ids}?"
+  text_issue_merge_description: "Descrição da #%{id} \"%{subject}\":"
+  text_issue_merge_stub: "Mesclada na #%{id}: as notas, os apontamentos de horas, os arquivos e as relações estão lá."
+  text_issue_merge_note: "A #%{id} \"%{subject}\" foi mesclada nesta tarefa."
+  text_issue_merge_original: "Era %{tracker}, %{status}, criada por %{author} em %{created}"
+  text_issue_merge_original_assignee: "e atribuída a %{name}"
+  text_issue_merge_moved: "Passaram para aqui:"
+  text_issue_merge_fields: "Os campos dela: %{fields}"
+  text_issue_merge_private_fields: "Campos restritos da #%{id}: %{fields}"
+  text_issue_merge_filled_fields: "Campos vazios preenchidos a partir das tarefas mescladas: %{fields}"
+  text_issue_merge_skipped_relation: "Relação não movida: %{relation} (%{reason})"
+  text_issue_merge_already_related: "a #%{id} já tem relação com essa tarefa"
+  text_issue_merge_closed: "A #%{id} foi fechada como duplicada."
+  text_issue_merge_deleted: "A #%{id} foi excluída."
+  text_issue_merge_protected_pattern_info: "Expressão regular testada no título e na descrição (sem distinguir maiúsculas). Serve para tarefas que outro sistema mantém sincronizadas e voltaria a criar. Vazio = sem proteção."
+  notice_issue_merge_done: "%{sources} mesclada(s) na #%{destination}."
+  error_issue_merge_not_found: "A tarefa #%{id} não existe ou você não pode vê-la."
+  error_issue_merge_same: Uma tarefa não pode ser mesclada em si própria.
+  error_issue_merge_no_source: Escolha pelo menos uma tarefa para mesclar.
+  error_issue_merge_no_destination: Escolha a tarefa que fica.
+  error_issue_merge_not_allowed: "Você não tem permissão para mesclar tarefas no projeto %{project}."
+  error_issue_merge_destination_not_editable: "Você não pode editar a #%{id}, a tarefa que ficaria."
+  error_issue_merge_cannot_delete: "Você não tem permissão para excluir a #%{id}."
+  error_issue_merge_cannot_close: "Você não tem permissão para editar a #%{id}, por isso não pode fechá-la."
+  error_issue_merge_ancestor: "A #%{id} é pai da #%{destination} e não pode ser mesclada nela."
+  error_issue_merge_protected: "A #%{id} está protegida contra mesclagem nas definições do plugin."
+  error_issue_merge_time_tracking: "A #%{id} tem apontamentos de horas, mas o apontamento de horas está desativado no projeto %{project}."
+  error_issue_merge_subtask: "A subtarefa #%{child} não pode passar para debaixo da #%{destination}: as definições de subtarefas não o permitem entre estes projetos."
+  error_issue_merge_failed: "Nada foi alterado; a mesclagem foi cancelada: %{message}"
+  error_issue_merge_invalid_pattern: Expressão regular inválida; não protege nada.
+  setting_issue_merge_source_action: Tarefa mesclada
+  setting_issue_merge_closed_status: Situação das tarefas mescladas
+  setting_issue_merge_escalate_priority: A tarefa que fica assume a prioridade mais alta
+  setting_issue_merge_fill_custom_fields: Preencher os campos personalizados vazios da tarefa que fica
+  setting_issue_merge_add_watchers: Autor e responsável da tarefa mesclada passam a observadores
+  setting_issue_merge_notify: Notificar por email (um email por mesclagem)
+  setting_issue_merge_protected_pattern: Nunca mesclar tarefas que correspondam a
