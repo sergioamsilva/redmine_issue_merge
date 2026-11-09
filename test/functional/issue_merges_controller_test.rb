@@ -2,7 +2,7 @@
 
 # Redmine Issue Merge plugin (Apache-2.0, see LICENSE and NOTICE)
 
-require File.expand_path('../test_helper', __dir__)
+require File.expand_path('../../test_helper', __FILE__)
 
 class IssueMergesControllerTest < Redmine::ControllerTest
   include IssueMergeTestHelper
